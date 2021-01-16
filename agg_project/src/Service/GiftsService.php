@@ -3,7 +3,12 @@ namespace App\Service;
 
 use Psr\Log\LoggerInterface;
 
-class GiftsService {
+/**
+ * Class GiftsService
+ * @package App\Service
+ */
+class GiftsService
+{
 
     public $gifts = ['flowers', 'car'];
 
@@ -12,5 +17,4 @@ class GiftsService {
         $logger->info('Gifts wer randomized!');
         shuffle($this->gifts);
     }
-
 }
