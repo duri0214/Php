@@ -3,6 +3,7 @@
 namespace App\Service;
 
 use PHPUnit\Framework\TestCase;
+use Symfony\Component\VarDumper\VarDumper;
 
 class ArrayUtilsTest extends TestCase
 {
@@ -19,5 +20,8 @@ class ArrayUtilsTest extends TestCase
         $this->assertEquals(1, count(ArrayUtils::SearchArrayByValue($items, ["pref" => "chiba", "name" => "satoshi"])));
         $this->assertEquals(2, count(ArrayUtils::SearchArrayByValue($items, ["pref" => "aomori"])));
         $this->assertEquals(0, count(ArrayUtils::SearchArrayByValue($items, ["pref" => "xxxxx"])));
+
+        // 検索できなかったときは　[] が返ります
+        VarDumper::dump(ArrayUtils::SearchArrayByValue($items, ["pref" => "xxxxx"]));
     }
 }
